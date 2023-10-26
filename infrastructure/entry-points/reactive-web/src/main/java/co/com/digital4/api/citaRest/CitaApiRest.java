@@ -11,6 +11,7 @@ import reactor.core.publisher.Mono;
 @RestController
 @RequestMapping(value = "/api", produces = MediaType.APPLICATION_JSON_VALUE)
 @AllArgsConstructor
+@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST, RequestMethod.DELETE})
 public class CitaApiRest {
     private final CitaUseCase citaUseCase;
 
@@ -25,7 +26,7 @@ public class CitaApiRest {
     }
 
     @GetMapping(path = "/getAll")
-    public Flux<CitaM> commandName() {
+    public Flux<CitaM> getAll() {
         return citaUseCase.getAll();
     }
 }
